@@ -1,0 +1,86 @@
+.navbar {
+  background: #000000; /* Black background */
+  padding: 0.75rem; /* Reduced padding */
+  border: 1px solid #ff6600; /* Thin orange border */
+  position: fixed; /* Fixed position at the top */
+  top: 1rem; /* Gap from the top */
+  right: 1rem; /* Gap from the right */
+  transform: translateX(0); /* Remove horizontal centering */
+  width: auto;
+  z-index: 1000; /* Ensure it's above other content */
+  border-radius: 12px; /* Rounded corners for the navbar */
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.8); /* Glowing border effect */
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.navbar-links li {
+  margin: 0 1rem;
+  position: relative; /* For positioning the hover effect */
+}
+
+.navbar-links a,
+.navbar-links button {
+  color: #ffffff; /* White text */
+  text-decoration: none;
+  font-size: 1rem; /* Reduced font size */
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s, background-color 0.3s, transform 0.3s;
+  padding: 0.5rem 1rem; /* Reduced padding */
+  border-radius: 8px; /* More rounded corners */
+  position: relative; /* For pseudo-element positioning */
+  overflow: hidden; /* Ensure pseudo-elements do not overflow */
+}
+
+.navbar-links a::before,
+.navbar-links button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 102, 0, 0.2); /* Orange shade */
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.3s ease;
+  z-index: 0; /* Place behind text */
+}
+
+.navbar-links a:hover::before,
+.navbar-links button:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.navbar-links a:hover,
+.navbar-links button:hover {
+  background-color: #ff6600; /* Orange background on hover */
+  color: #000000; /* Black text on hover */
+  transform: scale(1.1); /* Slightly larger on hover */
+  /* Removed the box-shadow and glow effect from buttons */
+}
+
+/* Smooth animation for cursor effect */
+@keyframes cursorAnimation {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.cursor-animation {
+  animation: cursorAnimation 0.8s ease-in-out infinite;
+}

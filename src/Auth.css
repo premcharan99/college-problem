@@ -1,0 +1,154 @@
+/* Auth.css */
+
+/* Remove custom cursor styles */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #121212; /* Background color */
+  overflow: hidden; /* Ensure no scrollbars appear */
+}
+
+/* Sun styles */
+.sun-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0; /* Behind the form */
+}
+
+.sun {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgba(255, 204, 0, 0) 50%);
+  opacity: 0.6;
+  animation: sunGlow 15s ease-in-out infinite, moveAround 30s linear infinite;
+  transition: transform 0.3s ease-out;
+}
+
+.sun:hover {
+  animation: none; /* Stop the sun movement when hovered */
+  transform: scale(1.5) translateX(20px) translateY(-20px); /* Move away effect */
+}
+
+.sun-1 { width: 50px; height: 50px; top: 10%; left: 10%; }
+.sun-2 { width: 60px; height: 60px; top: 20%; left: 30%; }
+.sun-3 { width: 40px; height: 40px; top: 30%; left: 50%; }
+.sun-4 { width: 70px; height: 70px; top: 40%; left: 70%; }
+.sun-5 { width: 45px; height: 45px; top: 50%; left: 40%; }
+.sun-6 { width: 55px; height: 55px; top: 60%; left: 60%; }
+.sun-7 { width: 50px; height: 50px; top: 70%; left: 20%; }
+.sun-8 { width: 65px; height: 65px; top: 80%; left: 80%; }
+.sun-9 { width: 60px; height: 60px; top: 10%; left: 80%; }
+.sun-10 { width: 70px; height: 70px; top: 30%; left: 10%; }
+.sun-11 { width: 40px; height: 40px; top: 50%; left: 70%; }
+.sun-12 { width: 55px; height: 55px; top: 20%; left: 50%; }
+.sun-13 { width: 45px; height: 45px; top: 70%; left: 30%; }
+.sun-14 { width: 50px; height: 50px; top: 30%; left: 40%; }
+.sun-15 { width: 60px; height: 60px; top: 60%; left: 20%; }
+.sun-16 { width: 60px; height: 60px; top: 60%; left: 20%; }
+.sun-17 { width: 60px; height: 60px; top: 60%; left: 20%; }
+.sun-18 { width: 60px; height: 60px; top: 60%; left: 20%; }
+.sun-19 { width: 60px; height: 60px; top: 60%; left: 20%; }
+.sun-20 { width: 60px; height: 60px; top: 60%; left: 20%; }
+.sun-21 { width: 60px; height: 60px; top: 60%; left: 20%; }
+
+/* Form styles */
+.auth-form {
+  background: #000000; /* Black background for the form */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+  border: 1px solid #ff6600; /* Orange border around the form */
+  position: relative; /* Position relative to create an absolute positioned pseudo-element */
+  animation: fadeIn 1.5s ease-out;
+  z-index: 1; /* Ensure form is above the background animation */
+}
+
+.auth-form h2 {
+  margin-bottom: 1.5rem;
+  color: #ff6600; /* Orange text */
+  text-align: center; /* Centered text */
+  animation: textAnimation 2s ease-in-out infinite;
+}
+
+.auth-form div {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centering the input boxes */
+}
+
+.auth-form label {
+  display: block;
+  font-size: 0.9rem;
+  color: #ffffff; /* White text for labels */
+  margin-bottom: 0.5rem;
+  text-align: left; /* Aligning labels to the left */
+  width: 100%;
+}
+
+.auth-form input {
+  width: 90%; /* Reduced width */
+  padding: 0.75rem;
+  border: 1px solid #ff6600; /* Orange border */
+  border-radius: 10px; /* Small curves */
+  font-size: 1rem;
+  background-color: #000000; /* Black background */
+  color: #ffffff; /* White text */
+  transition: border-color 0.3s, box-shadow 0.3s;
+  text-align: center; /* Centered text */
+}
+
+.auth-form input:focus {
+  border-color: #ff6600; /* Orange border on focus */
+  box-shadow: 0 0 5px rgba(255, 102, 0, 0.5); /* Orange glow on focus */
+}
+
+/* Styles for the buttons */
+.auth-form button {
+  width: 50%; /* Smaller width */
+  padding: 0.5rem; /* Smaller padding */
+  border: none;
+  border-radius: 10px; /* Small curves */
+  background-color: #ff6600; /* Orange background */
+  color: #ffffff; /* White text */
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  display: block;
+  margin: 0.5rem auto; /* Centering the button */
+}
+
+.auth-form button:hover {
+  background-color: #e65c00; /* Darker orange on hover */
+  transform: scale(1.05); /* Slightly larger on hover */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes textAnimation {
+  0%, 100% { color: #ff6600; }
+  50% { color: #ffffff; } /* Text changes to white in the middle of the animation */
+}
+
+@keyframes sunGlow {
+  0% { opacity: 0.6; }
+  50% { opacity: 0.3; }
+  100% { opacity: 0.6; }
+}
+
+@keyframes moveAround {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(20px, 20px); }
+}

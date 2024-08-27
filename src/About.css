@@ -1,0 +1,19 @@
+.about-container {
+    padding: 2rem;
+    text-align: center;
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text */
+  }
+  
+  .about-header {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ff6600; /* Orange text */
+  }
+  
+  .about-content {
+    font-size: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  

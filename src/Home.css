@@ -1,0 +1,359 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #f0f0f0; /* Updated background color for a more elegant look */
+}
+
+.home-container {
+  display: flex;
+  height: 100vh; /* Full height of viewport */
+  background-color: #e8e8e8; /* Slightly darker background color for the page */
+}
+
+.sidebar {
+  width: 300px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  position: fixed; /* Fix sidebar to the left */
+  height: 100%; /* Full height of the page */
+  overflow-y: auto; /* Allow scrolling if content exceeds viewport height */
+}
+
+.search-bar {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+#search-input {
+  width: calc(100% - 90px);
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#search-button {
+  width: 80px;
+  margin-left: 10px;
+  background-color: #FFA500;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#search-button:hover {
+  background-color: #e59400;
+}
+
+.filters {
+  margin-bottom: 20px;
+}
+
+.filters label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.filters select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.upload-box {
+  background: #333;
+  color: white;
+  padding: 20px; /* Increased padding for better spacing */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border: 2px solid #FFA500; /* Shiny orange border */
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-box::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  width: calc(100% + 12px);
+  height: calc(100% + 12px);
+  background: linear-gradient(45deg, rgba(255, 165, 0, 0.6), rgba(255, 140, 0, 0.6));
+  z-index: -1;
+  filter: blur(6px);
+  border-radius: 12px;
+}
+
+.upload-box h2 {
+  margin: 0 0 20px 0; /* Adjusted margin for spacing */
+  font-size: 24px; /* Increased font size for better visibility */
+}
+
+.upload-input {
+  margin-bottom: 20px; /* Increased margin for better spacing */
+}
+
+.upload-input label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px; /* Consistent font size */
+}
+
+.upload-input input,
+.upload-input textarea {
+  width: 100%;
+  padding: 10px; /* Increased padding for better usability */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: white;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.upload-input textarea {
+  resize: vertical; /* Allow vertical resizing */
+  min-height: 100px; /* Set a minimum height for the textarea */
+}
+
+.upload-button {
+  background-color: #FFA500;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px; /* Consistent font size */
+  display: inline-block; /* Align properly with other elements */
+}
+
+.upload-button:hover {
+  background-color: #e59400;
+}
+
+.image-preview {
+  margin-top: 20px; /* Space above the image preview */
+  max-width: 100%;
+  max-height: 200px; /* Adjust as needed */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  object-fit: cover; /* Ensure the image is properly scaled */
+}
+
+.image-gallery {
+  flex-grow: 1;
+  margin-left: 320px; /* Space for the fixed sidebar */
+  padding: 20px;
+  overflow-y: auto; /* Allow scrolling for the image gallery */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Gap between posts */
+  background-color: #fff; /* White background for gallery for contrast */
+}
+
+.image-frame {
+  background: #000; /* Black background for the frame */
+  border: 2px solid #FFA500; /* Shiny orange border similar to upload box */
+  border-radius: 12px; /* Rounded corners for elegance */
+  padding: 15px;
+  position: relative;
+  width: 100%;
+  max-width: 400px; /* Increased width for a vertical rectangle */
+  height: 500px; /* Increased height for a vertical rectangle */
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition effects */
+}
+
+.image-frame:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  transform: scale(1.02); /* Slightly scale up on hover */
+}
+
+.image-frame .image-info {
+  color: #fff; /* White text for better contrast on black background */
+  margin-bottom: 10px;
+}
+
+.image-frame .image-caption,
+.image-frame .image-school {
+  margin-bottom: 8px;
+  font-size: 18px; /* Slightly larger font size for better readability */
+  font-family: 'Arial', sans-serif; /* Professional and clean font */
+  text-align: center; /* Center-align text for a more elegant look */
+  font-weight: bold; /* Make text bold for emphasis */
+}
+
+.image-frame .image-caption {
+  color: #FFA500; /* Orange color for the caption for emphasis */
+}
+
+.image-frame .image-school {
+  color: #bbb; /* Slightly lighter color for the school name */
+  font-weight: normal; /* Normal weight for the school name */
+}
+
+.image-frame .image-content {
+  width: 100%;
+  height: 70%; /* Adjust height to ensure full picture visibility */
+  border: 2px solid #FFA500; /* Shiny orange border for image frame */
+  border-radius: 8px; /* Rounded corners for the image */
+  object-fit: cover; /* Ensure image covers the frame without distortion */
+  margin-bottom: 10px; /* Space below the image */
+}
+
+.delete-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #FFA500;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 6px;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for button */
+}
+
+.delete-button:hover {
+  background: #e59400;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 100%;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.modal-content button {
+  background-color: #FFA500;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.modal-content button:hover {
+  background-color: #e59400;
+}
+
+/* Full image modal */
+.full-image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.full-image-content {
+  max-width: 80%; /* Adjust the width as needed */
+  max-height: 80%; /* Adjust the height as needed */
+  overflow: hidden; /* Hide overflow to maintain aspect ratio */
+  border: 5px solid #FFA500; /* Shiny border effect */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+}
+
+.full-image-content img {
+  width: 100%;
+  height: auto;
+}
+.note-box {
+  background: linear-gradient(135deg, #f9f9f9, #eaeaea); /* Gradient background for a modern look */
+  color: #333; /* Dark text for readability */
+  padding: 20px; /* Increased padding for better spacing */
+  border-radius: 12px; /* More rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 165, 0, 0.5); /* Deep shadow with glowing border */
+  margin-top: 25px; /* Increased space above the note box */
+  border: 1px solid transparent; /* Transparent border to highlight glowing effect */
+  font-size: 16px; /* Slightly larger font size */
+  position: relative; /* For positioning the pseudo-element */
+  overflow: hidden; /* To hide overflow from pseudo-element */
+  animation: pulse 3s infinite; /* Gentle pulse animation */
+}
+
+.note-box::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: calc(100% + 20px); /* Extends beyond the note-box */
+  height: calc(100% + 20px); /* Extends beyond the note-box */
+  background: rgba(255, 150, 0, 0.1); /* Soft orange background */
+  border-radius: 12px;
+  z-index: -1; /* Behind the note box */
+}
+
+.note-box p {
+  margin: 0; /* Remove default margin */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow for readability */
+}
+
+.highlight {
+  display: block; /* Ensures 'Note' is on a separate line */
+  font-size: 18px; /* Larger font size for emphasis */
+  font-weight: bold; /* Bold text */
+  color: #ff6600; /* Orange color to match the glow */
+  background: rgba(255, 255, 255, 0.8); /* Light background to make it stand out */
+  padding: 5px; /* Padding around the text */
+  border-radius: 4px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Add this to Home.css */
+
+
